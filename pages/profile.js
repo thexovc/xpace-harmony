@@ -45,16 +45,16 @@ const Profile = () => {
 
     return (
         <Layout>
-            <div class="md:mx-20 mx-5 mt-24 h-full rounded-lg bg-gray-300 px-2">
+            <div className="md:mx-20 mx-5 mt-24 h-full rounded-lg bg-gray-300 px-2">
                 <br /><br />
                 <div className="flex w-full justify-center items-center mb-4">
                     <img src={userDetails.profileImage} style={{ width: "150px", height: "150px", borderRadius: "50%" }} className="bg-blue-100 p-3 border-2 border-black" />
 
                 </div>
-                <div class="max-w-md mx-auto shadow-lg bg-gray-200 rounded-lg overflow-hidden md:max-w-lg">
-                    <div class="md:flex justify-center items-center">
+                <div className="max-w-md mx-auto shadow-lg bg-gray-200 rounded-lg overflow-hidden md:max-w-lg">
+                    <div className="md:flex justify-center items-center">
                         <div className="mx-auto w-1/2 mt-8">
-                            <div class="mb-6 flex flex-col justify-center items-center">
+                            <div className="mb-6 flex flex-col justify-center items-center">
                                 <h1 className="font-bold text-gray-800 text-2xl">
                                     {userDetails.name}
                                 </h1>
@@ -72,7 +72,7 @@ const Profile = () => {
                                 </p>
 
                                 <Link className="flex-end" href={`/edit_profile?id=${userDetails.walletAddress}`}>
-                                    <button class="text-white mt-4 bg-green-700 
+                                    <button className="text-white mt-4 bg-green-700 
                             hover:bg-green-800 rounded-md px-5 py-2.5 font-bold text-center">
                                         Edit Profile
                                     </button>

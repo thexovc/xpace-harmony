@@ -108,57 +108,57 @@ const Course = () => {
 
     return (
         <Layout>
-            <div class=" mb-30 h-screen w-full lg:px-40 px-3 py-2 lg:py-3">
+            <div className=" mb-30 h-screen w-full lg:px-40 px-3 py-2 lg:py-3">
 
-                <div class="relative">
-                    <input class="pl-12 rounded-md w-full border-2 border-gray-600 p-2 focus:border-gray-400 focus:shadow-lg focus:text-blue-400 transition bg-white  text-sm focus:outline-none" placeholder="Search Courses" />
+                <div className="relative">
+                    <input className="pl-12 rounded-md w-full border-2 border-gray-600 p-2 focus:border-gray-400 focus:shadow-lg focus:text-blue-400 transition bg-white  text-sm focus:outline-none" placeholder="Search Courses" />
                     <button type="submit">
-                        <FaSearch class="absolute right-0 top-0 flex items-center mt-3 mr-10  text-gray-600" />
+                        <FaSearch className="absolute right-0 top-0 flex items-center mt-3 mr-10  text-gray-600" />
 
                     </button>
                 </div>
-                <div class="py-3">
-                    <h1 class="text-blue-500 text-2xl font-bold">Browse by Category</h1>
+                <div className="py-3">
+                    <h1 className="text-blue-500 text-2xl font-bold">Browse by Category</h1>
                 </div>
 
 
-                <div class="py-3 flex flex-row justify-between w-full">
-                    <button class="flex flex-row overflow-hidden">
-                        <div class="flex justify-center py-4 px-2  items-center bg-gray-700 font-bold text-white rounded-md">
+                <div className="py-3 flex flex-row justify-between w-full">
+                    <button className="flex flex-row overflow-hidden">
+                        <div className="flex justify-center py-4 px-2  items-center bg-gray-700 font-bold text-white rounded-md">
                             <span>Designer</span>
                         </div>
                     </button>
-                    <button class="flex flex-row">
-                        <div class="flex justify-center py-4 px-2 items-center bg-gray-700 font-bold text-white rounded-md">
+                    <button className="flex flex-row">
+                        <div className="flex justify-center py-4 px-2 items-center bg-gray-700 font-bold text-white rounded-md">
                             <span>Traders</span>
                         </div>
                     </button>
-                    <button class="flex flex-row">
-                        <div class="flex justify-center py-4 px-2 items-center bg-gray-700 font-bold text-white rounded-md">
+                    <button className="flex flex-row">
+                        <div className="flex justify-center py-4 px-2 items-center bg-gray-700 font-bold text-white rounded-md">
                             <span>Developers</span>
                         </div>
                     </button>
 
-                    <button class="flex flex-row">
-                        <div class="flex justify-center py-4 px-2 items-center bg-gray-700 font-bold text-white rounded-md">
+                    <button className="flex flex-row">
+                        <div className="flex justify-center py-4 px-2 items-center bg-gray-700 font-bold text-white rounded-md">
                             <span>Investors</span>
                         </div>
                     </button>
                 </div>
 
-                <div class="py-2 capitalize">
-                    <p class="text-3xl font-semibold text-gray-700 flex justify-center">courses</p>
-                    <p class="text-md flex justify-center mt-1 text-gray-500"> 16 results found</p>
+                <div className="py-2 capitalize">
+                    <p className="text-3xl font-semibold text-gray-700 flex justify-center">courses</p>
+                    <p className="text-md flex justify-center mt-1 text-gray-500"> 16 results found</p>
                 </div>
 
 
-                <div class="w-full">
+                <div className="w-full">
                     <ul>
                         {courses.map((course, index) => (
                             <div key={index} className="border-2 mb-4 rounded-md p-4 border-gray-400">
-                                <li class="flex border-gray-900 p-3 border-2 w-full rounded-lg justify-between items-center">
-                                    <div class="flex flex-row items-center">
-                                        <img src="../assets/img1.jpg" class="w-10 h-10 rounded-full" />
+                                <li className="flex border-gray-900 p-3 border-2 w-full rounded-lg justify-between items-center">
+                                    <div className="flex flex-row items-center">
+                                        <img src="../assets/img1.jpg" className="w-10 h-10 rounded-full" />
                                         <span className="ml-2 text-2xl font-bold text-black">
                                             {course.ownername}
                                         </span>
@@ -171,8 +171,8 @@ const Course = () => {
                                 </li>
 
 
-                                <div class="my-4">
-                                    <p class="text-3xl font-bold">{course.name} --
+                                <div className="my-4">
+                                    <p className="text-3xl font-bold">{course.name} --
                                         <span className="text-2xl">
                                             <span className="text-blue-500 mr-4">
                                                 {course.price}
@@ -180,7 +180,7 @@ const Course = () => {
                                             xpaceToken
                                         </span>
                                     </p>
-                                    <p class="text-md truncate mt-2 ">
+                                    <p className="text-md truncate mt-2 ">
                                         {course.desc}
                                     </p>
                                 </div>

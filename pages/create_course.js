@@ -87,56 +87,56 @@ const Create_Course = () => {
 
     return (
         <Layout>
-            <div class="mx-5 md:mx-20  h-full rounded-lg bg-gray-300 px-2">
-                <div class="py-10 bg-gray-300 px-2">
+            <div className="mx-5 md:mx-20  h-full rounded-lg bg-gray-300 px-2">
+                <div className="py-10 bg-gray-300 px-2">
                     <br /><br />
                     <div className="flex w-full justify-center items-center mb-4">
                         <h1 className="max-w-md mx-auto text-2xl font-bold text-gray-800">Make a Course</h1>
                     </div>
-                    <div class="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg overflow-hidden md:max-w-lg">
-                        <div class="md:flex">
+                    <div className="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg overflow-hidden md:max-w-lg">
+                        <div className="md:flex">
                             <form className="mx-auto w-10/12 mt-8">
-                                <div class="mb-6">
-                                    <label for="email" class="pl-4 font-bold text-lg text-gray-600 block mb-2 ">Post Title</label>
-                                    <input onChange={(e) => setCourseName(e.target.value)} type="text" class="shadow-sm bg-gray-50 border
+                                <div className="mb-6">
+                                    <label htmlFor="email" className="pl-4 font-bold text-lg text-gray-600 block mb-2 ">Post Title</label>
+                                    <input onChange={(e) => setCourseName(e.target.value)} type="text" className="shadow-sm bg-gray-50 border
             border-gray-500 text-gray-900  rounded-lg block w-full p-2.5" placeholder="title" required />
 
                                     <br />
 
-                                    <label for="email" class="pl-4 font-bold text-lg text-gray-600 block mb-2 ">Amount in Xpace Token</label>
-                                    <input onChange={(e) => setPrice(e.target.value)} type="number" class="shadow-sm bg-gray-50 border
+                                    <label htmlFor="email" className="pl-4 font-bold text-lg text-gray-600 block mb-2 ">Amount in Xpace Token</label>
+                                    <input onChange={(e) => setPrice(e.target.value)} type="number" className="shadow-sm bg-gray-50 border
             border-gray-500 text-gray-900  rounded-lg block w-full p-2.5" placeholder="amount" required />
 
                                     <br />
 
-                                    <label for="email" class="pl-4 font-bold text-lg text-gray-600 block mb-2 ">Description</label>
-                                    <textarea cols={30} onChange={(e) => setDesc(e.target.value)} type="text" class="shadow-sm bg-gray-50 border
+                                    <label htmlFor="email" className="pl-4 font-bold text-lg text-gray-600 block mb-2 ">Description</label>
+                                    <textarea cols={30} onChange={(e) => setDesc(e.target.value)} type="text" className="shadow-sm bg-gray-50 border
             border-gray-500 text-gray-900  rounded-lg block w-full p-2.5" placeholder="amount" required > </textarea>
 
                                     <br />
 
-                                    <label for="email" class="pl-4 font-bold text-lg text-gray-600 block mb-2 ">Pdf</label>
+                                    <label htmlFor="email" className="pl-4 font-bold text-lg text-gray-600 block mb-2 ">Pdf</label>
 
                                     <input type="file"
                                         id="fileElem"
                                         multiple accept="image/*"
 
 
-                                        class="bg-gray-50 border
+                                        className="bg-gray-50 border
                                     border-gray-400 
                                     text-gray-900  rounded-lg 
                                     block w-full p-1"  required
                                     />
                                     <br />
 
-                                    <label for="email" class="pl-4 font-bold text-lg text-gray-600 block mb-2 ">File</label>
+                                    <label htmlFor="email" className="pl-4 font-bold text-lg text-gray-600 block mb-2 ">File</label>
 
                                     <input type="file"
                                         id="fileElem"
                                         multiple accept="image/*"
 
 
-                                        class="bg-gray-50 border
+                                        className="bg-gray-50 border
                                     border-gray-400 
                                     text-gray-900  rounded-lg 
                                     block w-full p-1"  required
@@ -146,7 +146,7 @@ const Create_Course = () => {
                                 </div>
 
 
-                                <button onClick={uploadCourse} type="submit" class="text-white bg-blue-700 
+                                <button onClick={uploadCourse} type="submit" className="text-white bg-blue-700 
                             hover:bg-blue-800 rounded-md px-5 py-2.5 font-bold text-center">
                                     Create a Course
                                 </button>

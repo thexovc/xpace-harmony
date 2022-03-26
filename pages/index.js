@@ -92,7 +92,7 @@ const Home = () => {
             <p className="mb-8 leading-relaxed">
               Today the frontier is on the internet and even on the internet,
               the frontier is within Web3 and crypto because
-              it &apos; s sort of the least regulated the most decentralized,
+              its sort of the least regulated the most decentralized,
               most permissionless, 24x7x365 markets
               that are self-funding hackers from all around the world.</p>
 
@@ -164,9 +164,9 @@ const Home = () => {
                   <h2 className="text-gray-900 text-lg title-font font-medium">Opportunity</h2>
                 </div>
                 <div className="flex-grow">
-                  <p className="leading-relaxed text-base">It's not even the first inning. It &apos; s like the anthem before the game has even started.
+                  <p className="leading-relaxed text-base">It's not even the first inning. Its like the anthem before the game has even started.
 
-                    And I have never seen so many highly intelligent, ambitious, capable people drop whatever they &apos; re doing, in many cases really attractive things, to dedicate their time to this.</p>
+                    And I have never seen so many highly intelligent, ambitious, capable people drop whatever theyre doing, in many cases really attractive things, to dedicate their time to this.</p>
 
                 </div>
               </div>

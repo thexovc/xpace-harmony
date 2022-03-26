@@ -69,11 +69,11 @@ const Page = () => {
 
     return (
         <Layout>
-            <div class="mx-5 md:mx-20  h-full rounded-lg bg-gray-300 px-2">
+            <div className="mx-5 md:mx-20  h-full rounded-lg bg-gray-300 px-2">
                 <br /><br />
                 <div className="flex flex-col w-full justify-center items-center mb-4">
                     <img src={userDetails.profileImage} style={{ width: "150px", height: "150px", borderRadius: "50%" }} className="bg-blue-100 p-3 border-2 border-black" />
-                    <div class="mb-6 flex flex-col justify-center items-center">
+                    <div className="mb-6 flex flex-col justify-center items-center">
                         <h1 className="font-bold text-gray-800 text-2xl">
                             {userDetails.name}
                         </h1>
@@ -91,17 +91,17 @@ const Page = () => {
                         </p>
                     </div>
                 </div>
-                <div class="max-w-md mx-auto shadow-lg bg-gray-200 rounded-lg overflow-hidden md:max-w-lg">
-                    <div class="md:flex justify-center items-center">
+                <div className="max-w-md mx-auto shadow-lg bg-gray-200 rounded-lg overflow-hidden md:max-w-lg">
+                    <div className="md:flex justify-center items-center">
                         <div className="mx-auto mt-8">
-                            <div class="mb-6 flex flex-col items-center">
+                            <div className="mb-6 flex flex-col items-center">
 
-                                <p class="text-3xl justify-center font-semibold mb-2"></p>
-                                <p class="text-lg text-gray-700 mt-2 w-10/12">
+                                <p className="text-3xl justify-center font-semibold mb-2"></p>
+                                <p className="text-lg text-gray-700 mt-2 w-10/12">
                                     {post.msg}
                                 </p>
 
-                                <button type="submit" class="text-white mt-6 bg-blue-700 
+                                <button type="submit" className="text-white mt-6 bg-blue-700 
                             hover:bg-blue-800 rounded-md px-5  py-2.5 font-bold text-center">
                                     Send Message
                                 </button>

@@ -80,26 +80,26 @@ const Make_Post = () => {
 
     return (
         <Layout>
-            <div class="mx-5 md:mx-20 h-full rounded-lg bg-gray-300 px-2">
-                <div class="py-10 bg-gray-300 px-2">
+            <div className="mx-5 md:mx-20 h-full rounded-lg bg-gray-300 px-2">
+                <div className="py-10 bg-gray-300 px-2">
                     <br /><br />
                     <div className="flex w-full justify-center items-center mb-4">
                         <h1 className="max-w-md mx-auto text-2xl font-bold text-gray-800">Make a Post</h1>
                     </div>
-                    <div class="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg overflow-hidden md:max-w-lg">
-                        <div class="md:flex">
+                    <div className="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg overflow-hidden md:max-w-lg">
+                        <div className="md:flex">
                             <form className="mx-auto w-10/12 mt-8">
-                                <div class="mb-6">
-                                    <label for="email" class="pl-4 font-bold text-lg text-gray-600 block mb-2 ">Post Title</label>
-                                    <input onChange={(e) => setPostName(e.target.value)} type="text" class="shadow-sm bg-gray-50 border
+                                <div className="mb-6">
+                                    <label htmlFor="email" className="pl-4 font-bold text-lg text-gray-600 block mb-2 ">Post Title</label>
+                                    <input onChange={(e) => setPostName(e.target.value)} type="text" className="shadow-sm bg-gray-50 border
             border-gray-500 text-gray-900  rounded-lg block w-full p-2.5" placeholder="title" required />
 
                                     <br />
 
-                                    <label for="email" class="pl-4 font-bold text-lg text-gray-600 block mb-2 ">Post Content</label>
+                                    <label htmlFor="email" className="pl-4 font-bold text-lg text-gray-600 block mb-2 ">Post Content</label>
 
                                     <textarea onChange={(e) => setPostMsg(e.target.value)} cols="30" type="text"
-                                        class="shadow-sm bg-gray-50 border
+                                        className="shadow-sm bg-gray-50 border
                                         border-gray-500 
                                         text-gray-900  
                                         rounded-lg block 
@@ -111,7 +111,7 @@ const Make_Post = () => {
                                 </div>
 
 
-                                <button onClick={makePost} type="submit" class="text-white bg-blue-700 
+                                <button onClick={makePost} type="submit" className="text-white bg-blue-700 
                             hover:bg-blue-800 rounded-md px-5 py-2.5 font-bold text-center">
                                     Make a Post
                                 </button>

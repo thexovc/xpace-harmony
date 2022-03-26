@@ -109,31 +109,31 @@ const Hire = () => {
 
     return (
         <Layout>
-            <div class="h-full w-full lg:px-40 px-3 py-2 lg:py-3">
+            <div className="h-full w-full lg:px-40 px-3 py-2 lg:py-3">
 
-                <div class="py-2 mt-24 flex justify-center">
-                    <p class="text-2xl font-bold text-gray-700">Transactions</p>
+                <div className="py-2 mt-24 flex justify-center">
+                    <p className="text-2xl font-bold text-gray-700">Transactions</p>
 
                 </div>
 
 
-                <div class="w-full">
+                <div className="w-full">
                     <ul>
                         {trxs.map((trx, index) => (
-                            <li key={index} class="flex border-2 p-3 border-gray-400 mb-4 rounded-lg">
-                                <div class="flex flex-row items-center justify-between"  >
+                            <li key={index} className="flex border-2 p-3 border-gray-400 mb-4 rounded-lg">
+                                <div className="flex flex-row items-center justify-between"  >
 
-                                    <div class="flex flex-col items-left justify-center ml-3">
-                                        <p class="text-black font-semibold text-lg">{trx.name} k</p>
-                                        <p class="text-gray-600 font-semibold">Status:
+                                    <div className="flex flex-col items-left justify-center ml-3">
+                                        <p className="text-black font-semibold text-lg">{trx.name} k</p>
+                                        <p className="text-gray-600 font-semibold">Status:
                                             {trx.status == "success" ? <span className="ml-4 text-green-600">{trx.status}...</span> : <span className="ml-4 text-red-700">{trx.status}...</span>}
                                         </p>
                                     </div>
 
                                 </div>
-                                {trx.owner == userDetails.walletAddress ? <a onClick={() => approveOrder(trx)} class="p-3 text-white rounded-lg bg-green-600 ml-auto font-semibold">
+                                {trx.owner == userDetails.walletAddress ? <a onClick={() => approveOrder(trx)} className="p-3 text-white rounded-lg bg-green-600 ml-auto font-semibold">
                                     <button> Approve Order</button>
-                                </a> : <a href={`/page?id=${trx.owner}`} class="p-3 text-white rounded-lg bg-blue-600 ml-auto font-semibold">
+                                </a> : <a href={`/page?id=${trx.owner}`} className="p-3 text-white rounded-lg bg-blue-600 ml-auto font-semibold">
                                     <button> Send Message</button>
                                 </a>}
 

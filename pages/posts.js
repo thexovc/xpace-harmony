@@ -88,24 +88,24 @@ const Course = () => {
 
     return (
         <Layout>
-            <div class=" h-full w-full lg:px-40 px-3 py-2 lg:py-3">
+            <div className=" h-full w-full lg:px-40 px-3 py-2 lg:py-3">
 
-                <div class="py-2 capitalize flex justify-center">
-                    <p class="text-2xl font-semibold text-gray-700">Posts</p>
+                <div className="py-2 capitalize flex justify-center">
+                    <p className="text-2xl font-semibold text-gray-700">Posts</p>
 
                 </div>
 
 
-                <div class="w-full">
+                <div className="w-full">
                     <ul>
                         {/* one start */}
                         {posts.map((post, index) => (
                             <div key={index} className="border-2 mb-4 rounded-md p-4 border-gray-400 cursor-pointer">
                                 <a href={`/post?id=${post._id}`}>
 
-                                    <li class="flex border-gray-900 p-3 border-2 w-full rounded-lg justify-between items-center">
-                                        <div class="flex flex-row items-center">
-                                            <img src={userDetails.profileImage} class="w-10 h-10 rounded-full" />
+                                    <li className="flex border-gray-900 p-3 border-2 w-full rounded-lg justify-between items-center">
+                                        <div className="flex flex-row items-center">
+                                            <img src={userDetails.profileImage} className="w-10 h-10 rounded-full" />
                                             <span className="ml-2 text-2xl font-bold text-black">
                                                 {userDetails.name}
                                             </span>
@@ -118,9 +118,9 @@ const Course = () => {
                                     </li>
 
 
-                                    <div class="my-4">
-                                        <p class="text-3xl font-semibold mb-2">{post.name}</p>
-                                        <p class="text-xl text-gray-500 truncate w-2/3">
+                                    <div className="my-4">
+                                        <p className="text-3xl font-semibold mb-2">{post.name}</p>
+                                        <p className="text-xl text-gray-500 truncate w-2/3">
                                             {post.msg}
                                         </p>
                                     </div>
