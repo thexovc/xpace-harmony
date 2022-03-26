@@ -2,7 +2,6 @@ import Layout from "../components/Layout";
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router";
 import * as Realm from "realm-web";
-import { Modules } from 'web3'
 
 
 const Home = () => {
@@ -100,7 +99,7 @@ const Home = () => {
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
             <img className="object-cover object-center rounded" alt="hero"
               src="/assets/hero.jpg" />
-          </div> '
+          </div>
         </div>
       </section>
       <section className="text-gray-700 body-font border-t border-gray-200">
@@ -142,9 +141,9 @@ const Home = () => {
                   <h2 className="text-gray-900 text-lg title-font font-medium">Digital Ownership</h2>
                 </div>
                 <div className="flex-grow">
-                  <p className="leading-relaxed text-base">If you're skeptical about the idea of owning digital property, then you're not only denying capitalism on the internet ....
+                  <p className="leading-relaxed text-base">If you re skeptical about the idea of owning digital property, then you re not only denying capitalism on the internet ....
 
-                    You're saying we're not going to have a collectively owned future. We're going to have a government-owned future and corporate-owned future.</p>
+                    You re saying we re not going to have a collectively owned future. We re going to have a government-owned future and corporate-owned future.</p>
 
                 </div>
               </div>
@@ -164,7 +163,7 @@ const Home = () => {
                   <h2 className="text-gray-900 text-lg title-font font-medium">Opportunity</h2>
                 </div>
                 <div className="flex-grow">
-                  <p className="leading-relaxed text-base">It's not even the first inning. Its like the anthem before the game has even started.
+                  <p className="leading-relaxed text-base">It s not even the first inning. Its like the anthem before the game has even started.
 
                     And I have never seen so many highly intelligent, ambitious, capable people drop whatever theyre doing, in many cases really attractive things, to dedicate their time to this.</p>
 
