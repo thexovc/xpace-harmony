@@ -15,7 +15,7 @@ const Course = () => {
 
     useEffect(async () => {
 
-        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        const REALM_APP_ID = "products-qexct";
         const app = new Realm.App({ id: REALM_APP_ID });
         const credentials = Realm.Credentials.anonymous();
 
@@ -47,7 +47,7 @@ const Course = () => {
     // Load all Posts
     useEffect(async () => {
         // add your Realm App Id to the .env.local file
-        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        const REALM_APP_ID = "products-qexct";
         const app = new Realm.App({ id: REALM_APP_ID });
         const credentials = Realm.Credentials.anonymous();
 
@@ -88,7 +88,7 @@ const Course = () => {
 
     return (
         <Layout>
-            <div class="mt-24 h-full w-full lg:px-40 px-3 py-2 lg:py-3">
+            <div class=" h-full w-full lg:px-40 px-3 py-2 lg:py-3">
 
                 <div class="py-2 capitalize flex justify-center">
                     <p class="text-2xl font-semibold text-gray-700">Posts</p>

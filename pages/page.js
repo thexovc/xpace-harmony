@@ -9,7 +9,7 @@ const Page = () => {
 
     useEffect(async () => {
 
-        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        const REALM_APP_ID = "products-qexct";
         const app = new Realm.App({ id: REALM_APP_ID });
         const credentials = Realm.Credentials.anonymous();
 
@@ -43,7 +43,7 @@ const Page = () => {
 
     return (
         <Layout>
-            <div class="mx-5 md:mx-20 mt-24 h-full rounded-lg bg-gray-300 px-2">
+            <div class="mx-5 md:mx-20 h-full rounded-lg bg-gray-300 px-2">
                 <br /><br />
                 <div className="flex w-full justify-center items-center mb-4">
                     <img src={userDetails.profileImage} style={{ width: "150px", height: "150px", borderRadius: "50%" }} className="bg-blue-100 p-3 border-2 border-black" />

@@ -13,7 +13,7 @@ const Create_Course = () => {
 
     useEffect(async () => {
 
-        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        const REALM_APP_ID = "products-qexct";
         const app = new Realm.App({ id: REALM_APP_ID });
         const credentials = Realm.Credentials.anonymous();
 
@@ -57,7 +57,7 @@ const Create_Course = () => {
             file: "https://www.youtube.com/watch?v=UBJ-j6Mcbzw"
         };
 
-        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        const REALM_APP_ID = "products-qexct";
         const app = new Realm.App({ id: REALM_APP_ID });
         const credentials = Realm.Credentials.anonymous();
 
@@ -87,7 +87,7 @@ const Create_Course = () => {
 
     return (
         <Layout>
-            <div class="mx-5 md:mx-20 mt-24 h-full rounded-lg bg-gray-300 px-2">
+            <div class="mx-5 md:mx-20  h-full rounded-lg bg-gray-300 px-2">
                 <div class="py-10 bg-gray-300 px-2">
                     <br /><br />
                     <div className="flex w-full justify-center items-center mb-4">

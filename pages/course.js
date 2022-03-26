@@ -13,7 +13,7 @@ const Course = () => {
 
     useEffect(async () => {
 
-        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        const REALM_APP_ID = "products-qexct";
         const app = new Realm.App({ id: REALM_APP_ID });
         const credentials = Realm.Credentials.anonymous();
 
@@ -46,7 +46,7 @@ const Course = () => {
     // Load all courses
     useEffect(async () => {
         // add your Realm App Id to the .env.local file
-        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        const REALM_APP_ID = "products-qexct";
         const app = new Realm.App({ id: REALM_APP_ID });
         const credentials = Realm.Credentials.anonymous();
 
@@ -78,7 +78,7 @@ const Course = () => {
             status: "pending"
         };
 
-        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        const REALM_APP_ID = "products-qexct";
         const app = new Realm.App({ id: REALM_APP_ID });
         const credentials = Realm.Credentials.anonymous();
 
@@ -108,7 +108,7 @@ const Course = () => {
 
     return (
         <Layout>
-            <div class="mt-20 mb-30 h-screen w-full lg:px-40 px-3 py-2 lg:py-3">
+            <div class=" mb-30 h-screen w-full lg:px-40 px-3 py-2 lg:py-3">
 
                 <div class="relative">
                     <input class="pl-12 rounded-md w-full border-2 border-gray-600 p-2 focus:border-gray-400 focus:shadow-lg focus:text-blue-400 transition bg-white  text-sm focus:outline-none" placeholder="Search Courses" />

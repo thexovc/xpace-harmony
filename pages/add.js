@@ -16,7 +16,7 @@ const Add = () => {
 
 
     //     // add your Realm App Id to the .env.local file
-    //     const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+    //     const REALM_APP_ID = "products-qexct";
     //     const app = new Realm.App({ id: REALM_APP_ID });
     //     const credentials = Realm.Credentials.anonymous();
     //     // try {
@@ -38,7 +38,7 @@ const Add = () => {
             image: image
         };
 
-        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        const REALM_APP_ID = "products-qexct";
         const app = new Realm.App({ id: REALM_APP_ID });
         const credentials = Realm.Credentials.anonymous();
 
