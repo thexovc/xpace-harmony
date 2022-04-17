@@ -7,10 +7,13 @@ import { UserContext } from "../context/user";
 const Page = () => {
     const [post, setPost] = useState([]);
 
-    const { userDetails, getUser } = useContext(UserContext)
+    const { userDetails, getUser, setToggle } = useContext(UserContext)
 
     getUser()
 
+    useEffect(() => {
+        setToggle(false)
+    }, [])
 
 
     // Load all Posts

@@ -10,9 +10,13 @@ const Create_Course = () => {
     const [price, setPrice] = useState("")
     const [desc, setDesc] = useState("")
 
-    const { userDetails, getUser } = useContext(UserContext)
+    const { userDetails, getUser, setToggle } = useContext(UserContext)
 
     getUser()
+
+    useEffect(() => {
+        setToggle(false)
+    }, [])
 
 
     // upload course

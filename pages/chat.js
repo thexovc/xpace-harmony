@@ -10,15 +10,21 @@ const Page = () => {
     const [msgInput, setMsgInput] = useState("");
     const [msgs, setMsgs] = useState([]);
 
-    const { userDetails, getUser } = useContext(UserContext)
+    const { userDetails, getUser, setToggle } = useContext(UserContext)
 
     getUser()
+
+    useEffect(() => {
+        setToggle(false)
+    }, [])
+
 
 
     // Load messages
     useEffect(async () => {
 
-        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        // const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        const REALM_APP_ID = "products-qexct";
         const app = new Realm.App({ id: REALM_APP_ID });
         const credentials = Realm.Credentials.anonymous();
 

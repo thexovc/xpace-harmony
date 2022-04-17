@@ -1,17 +1,21 @@
 import Layout from "../components/Layout";
 import { useRouter } from "next/router";
 import * as Realm from "realm-web";
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Link from 'next/link'
+import { UserContext } from "../context/user";
 
 
 const Hire = () => {
     const [users, setUsers] = useState([]);
+    const { userDetails, getUser, setToggle } = useContext(UserContext)
 
 
     // Load all courses
     useEffect(async () => {
         // add your Realm App Id to the .env.local file
+        setToggle(false)
+
         const REALM_APP_ID = "products-qexct";
         const app = new Realm.App({ id: REALM_APP_ID });
         const credentials = Realm.Credentials.anonymous();

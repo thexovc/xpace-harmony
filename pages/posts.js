@@ -10,9 +10,13 @@ const Course = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setloading] = useState(true)
 
-    const { userDetails, getUser } = useContext(UserContext)
+    const { userDetails, getUser, setToggle } = useContext(UserContext)
 
     getUser()
+
+    useEffect(() => {
+        setToggle(false)
+    }, [])
 
 
     // Load all Posts
@@ -40,7 +44,7 @@ const Course = () => {
 
     return (
         <Layout>
-            <div className=" h-full w-full lg:px-40 px-3 py-2 lg:py-3">
+            <div className=" max-w-sm mx-auto lg:px-40 px-3 py-2 lg:py-3">
 
                 <div className="py-4 capitalize flex justify-center">
                     <p className="text-3xl font-semibold text-gray-100">Forum</p>
@@ -67,7 +71,7 @@ const Course = () => {
                 )}
 
 
-                <div className=" m-4 max-w-xl mx-auto">
+                <div className=" m-4 max-w-sm mx-auto">
                     <ul >
                         {/* one start */}
                         {posts.map((post, index) => (
@@ -83,7 +87,7 @@ const Course = () => {
                                         </div>
 
 
-                                        <div>
+                                        <div className="truncate">
                                             {userDetails.walletAddress}
                                             <span className="bg-blue-600 rounded-lg p-2 ml-4 text-white font-semibold">Read More</span>
                                         </div>
@@ -109,7 +113,7 @@ const Course = () => {
 
 
             </div>
-        </Layout>
+        </Layout >
     );
 }
 

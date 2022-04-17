@@ -10,9 +10,15 @@ const Make_Post = () => {
     const [postMsg, setPostMsg] = useState("")
 
 
-    const { userDetails, getUser } = useContext(UserContext)
+    const { userDetails, getUser, setToggle } = useContext(UserContext)
 
     getUser()
+
+    useEffect(() => {
+        setToggle(false)
+    }, [])
+
+
 
 
 
