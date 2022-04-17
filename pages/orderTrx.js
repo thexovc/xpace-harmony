@@ -92,7 +92,7 @@ const Hire = () => {
 
                 {loading && (
                     <div
-                        id="popup-modal" tabindex="-1"
+                        id="popup-modal" tabIndex="-1"
                         className="relative overflow-y-auto overflow-x-hidden 
                     top-20 mx-auto p-5 border w-40 shadow-lg rounded-md bg-gray-200 md:inset-0 h-modal -mb-40 "
                     >
