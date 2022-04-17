@@ -53,12 +53,12 @@ const Home = () => {
               <br />
               <span className="hidden lg:inline-block text-gray-500 text-2xl sm:text-2xl" ><a href="https://twitter.com/naval">@i-Jo3l</a> </span>
             </h1>
-            <p className="mb-8 leading-relaxed">
-              Today the frontier is on the internet and even on the internet,
-              the frontier is within Web3 and crypto because
-              its sort of the least regulated the most decentralized,
-              most permissionless, 24x7x365 markets
-              that are self-funding hackers from all around the world.</p>
+            <p className="mb-8 text-xl leading-relaxed">
+              The ultimate goal of Web 3.0 is to create more intelligent, connected and open websites.
+              Web 3.0 is essential because it allows businesses to streamline their operations by cutting out the middleman and directly connecting computers. This facilitates communication and collaboration between employees, partners, and customers, making for a more efficient business.
+
+              Xpace is here to help you in your successful transition from Web 2.0 to Web 3.0
+            </p>
 
           </div>
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
