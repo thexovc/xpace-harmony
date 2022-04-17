@@ -90,21 +90,21 @@ const Page = () => {
     return (
         <Layout>
 
-            <div class="max-w-sm mx-auto mt-8 md:mt-20 shadow-sm shadow-black  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <div className="max-w-sm mx-auto mt-8 md:mt-20 shadow-sm shadow-black  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div className="overflow-auto h-80">
                     <div className="flow-root mx-4">
-                        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+                        <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
                             {/* {users.map((user, index) => ( */}
-                            <li class="py-3 sm:py-4">
-                                <div class="flex items-center space-x-4">
-                                    <div class="flex-shrink-0">
-                                        <img class="w-8 h-8 rounded-full" src={userDetails.profileImage} />
+                            <li className="py-3 sm:py-4">
+                                <div className="flex items-center space-x-4">
+                                    <div className="flex-shrink-0">
+                                        <img className="w-8 h-8 rounded-full" src={userDetails.profileImage} />
                                     </div>
-                                    <div class="flex-1 min-w-0">
-                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                    <div className="flex-1 min-w-0">
+                                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
                                             {userDetails.name}
                                         </p>
-                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
                                             {userDetails.walletAddress}
                                         </p>
                                     </div>
@@ -115,16 +115,16 @@ const Page = () => {
                         </ul>
                     </div>
 
-                    <div class="mt-2 mb-16">
+                    <div className="mt-2 mb-16">
                         {msgs.map((msg, index) => (
                             <div key={index}>
                                 {
                                     userDetails.walletAddress === msg.uid.sender ?
 
 
-                                        <div class="clearfix">
+                                        <div className="clearfix">
                                             <div
-                                                class="bg-green-300 float-right w-3/4 mx-4 my-2 p-2 rounded-lg clearfix"
+                                                className="bg-green-300 float-right w-3/4 mx-4 my-2 p-2 rounded-lg clearfix"
                                             >{msg.msg}</div>
                                         </div>
 
@@ -132,9 +132,9 @@ const Page = () => {
                                         :
                                         <>
                                             <br />
-                                            <div class="clearfix">
+                                            <div className="clearfix">
                                                 <div
-                                                    class="bg-gray-300 float-left w-3/4 mx-4 my-2 p-2 rounded-lg"
+                                                    className="bg-gray-300 float-left w-3/4 mx-4 my-2 p-2 rounded-lg"
                                                 >{msg.msg}</div>
                                             </div>
                                         </>
@@ -145,18 +145,18 @@ const Page = () => {
 
                 </div>
 
-                <div class="space-x-20 mt-4 bg-green-100 bottom-0 flex">
+                <div className="space-x-20 mt-4 bg-green-100 bottom-0 flex">
                     <input
-                        class="outline-none flex-grow m-2 py-2 px-4 mr-1 rounded-full border border-gray-300 bg-gray-200 "
+                        className="outline-none flex-grow m-2 py-2 px-4 mr-1 rounded-full border border-gray-300 bg-gray-200 "
 
                         placeholder="Message..."
                         value={msgInput}
                         onChange={(e) => setMsgInput(e.target.value)}
 
                     />
-                    <button class="m-2 outline-none" onClick={msgSend}>
+                    <button className="m-2 outline-none" onClick={msgSend}>
                         <svg
-                            class="svg-inline--fa text-green-400 fa-paper-plane fa-w-8 w-8 h-12 py-2 mr-4"
+                            className="svg-inline--fa text-green-400 fa-paper-plane fa-w-8 w-8 h-12 py-2 mr-4"
                             aria-hidden="true"
                             focusable="false"
                             data-prefix="fas"

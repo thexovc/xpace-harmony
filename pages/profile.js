@@ -18,21 +18,21 @@ const Profile = () => {
 
 
 
-            <div class="max-w-sm mx-auto mt-8 md:mt-20 shadow-sm shadow-black  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <div class="flex justify-end px-4 pt-4">
+            <div className="max-w-sm mx-auto mt-8 md:mt-20 shadow-sm shadow-black  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div className="flex justify-end px-4 pt-4">
 
 
                 </div>
-                <div class="flex flex-col items-center pb-10">
-                    <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src={userDetails.profileImage} />
-                    <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{userDetails.name}</h5>
-                    <h5 class="mb-1 font-medium text-gray-600 dark:text-white">{userDetails.walletAddress}</h5>
+                <div className="flex flex-col items-center pb-10">
+                    <img className="mb-3 w-24 h-24 rounded-full shadow-lg" src={userDetails.profileImage} />
+                    <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{userDetails.name}</h5>
+                    <h5 className="mb-1 font-medium text-gray-600 dark:text-white">{userDetails.walletAddress}</h5>
 
                     <h1 className="font-bold text-gray-800 text-xl">
                         Bio
                     </h1>
-                    <span class="text-sm text-gray-500 dark:text-gray-400">{userDetails.bio}</span>
-                    <div class="flex mt-4 space-x-3 lg:mt-6">
+                    <span className="text-sm text-gray-500 dark:text-gray-400">{userDetails.bio}</span>
+                    <div className="flex mt-4 space-x-3 lg:mt-6">
                         <Link className="flex-end" href={`/edit_profile?id=${userDetails?.walletAddress}`}>
                             <button className="text-white mt-4 bg-green-700 
                             hover:bg-green-800 rounded-md px-5 py-2.5 font-bold text-center">
