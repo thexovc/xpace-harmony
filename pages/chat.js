@@ -1,0 +1,180 @@
+import Layout from "../components/Layout";
+import { useRouter } from "next/router";
+import * as Realm from "realm-web";
+import { useContext, useEffect, useState } from "react"
+import Link from 'next/link'
+import { UserContext } from "../context/user";
+
+const Page = () => {
+
+    const [msgInput, setMsgInput] = useState("");
+    const [msgs, setMsgs] = useState([]);
+
+    const { userDetails, getUser } = useContext(UserContext)
+
+    getUser()
+
+
+    // Load messages
+    useEffect(async () => {
+
+        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        const app = new Realm.App({ id: REALM_APP_ID });
+        const credentials = Realm.Credentials.anonymous();
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const profileID = urlParams.get("id")
+        const sender = urlParams.get("sender")
+
+
+        const access = {
+            sender: sender,
+            reciever: profileID
+        };
+
+        try {
+            const user = await app.logIn(credentials);
+            const myMsg = await user.functions.xpaceViewMsg(access);
+            setMsgs(() => myMsg);
+
+            // console.log(msgs)
+
+        } catch (error) {
+            console.error(error);
+        }
+    }, [msgs]);
+
+
+    // send message
+    const msgSend = async (e) => {
+        e.preventDefault();
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const profileID = urlParams.get("id")
+
+
+        const msgdetail = {
+            uid: userDetails.walletAddress,
+            tuid: profileID,
+            msg: msgInput
+        };
+
+        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        const app = new Realm.App({ id: REALM_APP_ID });
+        const credentials = Realm.Credentials.anonymous();
+
+        try {
+
+
+            const user = await app.logIn(credentials);
+
+            if (user) {
+
+                const insertO = await user.functions.xpaceMsg(msgdetail);
+
+                console.log(insertO)
+                setMsgInput("")
+
+            }
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+
+
+
+    return (
+        <Layout>
+
+            <div class="max-w-sm mx-auto mt-8 md:mt-20 shadow-sm shadow-black  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div className="overflow-auto h-80">
+                    <div className="flow-root mx-4">
+                        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+                            {/* {users.map((user, index) => ( */}
+                            <li class="py-3 sm:py-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                        <img class="w-8 h-8 rounded-full" src={userDetails.profileImage} />
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                            {userDetails.name}
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            {userDetails.walletAddress}
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </li>
+                            {/* ))} */}
+                        </ul>
+                    </div>
+
+                    <div class="mt-2 mb-16">
+                        {msgs.map((msg, index) => (
+                            <div key={index}>
+                                {
+                                    userDetails.walletAddress === msg.uid.sender ?
+
+
+                                        <div class="clearfix">
+                                            <div
+                                                class="bg-green-300 float-right w-3/4 mx-4 my-2 p-2 rounded-lg clearfix"
+                                            >{msg.msg}</div>
+                                        </div>
+
+
+                                        :
+                                        <>
+                                            <br />
+                                            <div class="clearfix">
+                                                <div
+                                                    class="bg-gray-300 float-left w-3/4 mx-4 my-2 p-2 rounded-lg"
+                                                >{msg.msg}</div>
+                                            </div>
+                                        </>
+                                }
+                            </div>
+                        ))}
+                    </div>
+
+                </div>
+
+                <div class="space-x-20 mt-4 bg-green-100 bottom-0 flex">
+                    <input
+                        class="outline-none flex-grow m-2 py-2 px-4 mr-1 rounded-full border border-gray-300 bg-gray-200 "
+
+                        placeholder="Message..."
+                        value={msgInput}
+                        onChange={(e) => setMsgInput(e.target.value)}
+
+                    />
+                    <button class="m-2 outline-none" onClick={msgSend}>
+                        <svg
+                            class="svg-inline--fa text-green-400 fa-paper-plane fa-w-8 w-8 h-12 py-2 mr-4"
+                            aria-hidden="true"
+                            focusable="false"
+                            data-prefix="fas"
+                            data-icon="paper-plane"
+                            role="img"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"
+                            />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </Layout>
+    );
+}
+
+export default Page;

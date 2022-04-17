@@ -1,16 +1,42 @@
 import Layout from "../components/Layout";
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router";
 import * as Realm from "realm-web";
-import { UserContext } from "../context/user";
 
 const Page = () => {
     const [post, setPost] = useState([]);
 
-    const { userDetails, getUser } = useContext(UserContext)
+    const [userDetails, setUserDetails] = useState([]);
 
-    getUser()
+    useEffect(async () => {
 
+        const REALM_APP_ID = "products-qexct";
+        const app = new Realm.App({ id: REALM_APP_ID });
+        const credentials = Realm.Credentials.anonymous();
+
+        try {
+
+
+            const resp = await window.solana.connect();
+            const address = resp.publicKey.toString()
+            // console.log(address)
+
+            if (address) {
+                const user = await app.logIn(credentials);
+                const myDetails = await user.functions.xpaceGetUser(address);
+                setUserDetails(() => myDetails);
+            } else {
+                router.push({
+                    pathname: `/`,
+                });
+            }
+
+        } catch (error) {
+            console.error(error);
+        }
+
+
+    }, [userDetails]);
 
 
     // Load all Posts
@@ -28,7 +54,9 @@ const Page = () => {
 
 
         try {
-
+            const resp = await window.solana.connect();
+            const address = resp.publicKey.toString()
+            // setWalletAddress(address)
 
             const user = await app.logIn(credentials);
             const allPost = await user.functions.xpaceOnePost(profileID);

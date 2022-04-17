@@ -1,56 +1,30 @@
 import Layout from "../components/Layout";
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useRouter } from "next/router";
 import * as Realm from "realm-web";
 import { FaSearch } from 'react-icons/fa'
+import { UserContext } from "../context/user";
 
 const Course = () => {
     const router = useRouter()
 
     const [courses, setCourses] = useState([]);
+    const [loading, setloading] = useState(false)
 
-    const [userDetails, setUserDetails] = useState([]);
-
-    useEffect(async () => {
-
-        const REALM_APP_ID = "products-qexct";
-        const app = new Realm.App({ id: REALM_APP_ID });
-        const credentials = Realm.Credentials.anonymous();
-
-        try {
+    const { userDetails, getUser } = useContext(UserContext)
 
 
-            const resp = await window.solana.connect();
-            const address = resp.publicKey.toString()
-            // console.log(address)
+    getUser()
 
-            if (address) {
-                const user = await app.logIn(credentials);
-                const myDetails = await user.functions.xpaceGetUser(address);
-                setUserDetails(() => myDetails);
-                console.log(userDetails.walletAddress, "dkdk")
-            } else {
-                router.push({
-                    pathname: `/`,
-                });
-            }
-
-        } catch (error) {
-            console.error(error);
-        }
-
-
-    }, [userDetails]);
 
 
     // Load all courses
     useEffect(async () => {
         // add your Realm App Id to the .env.local file
+
         const REALM_APP_ID = "products-qexct";
         const app = new Realm.App({ id: REALM_APP_ID });
         const credentials = Realm.Credentials.anonymous();
-
-
 
 
         try {
@@ -65,7 +39,7 @@ const Course = () => {
 
     // make an order
     const createOrder = async (arg) => {
-
+        setloading(true)
 
         const orderTrx = {
             owner: arg.owner,
@@ -110,91 +84,38 @@ const Course = () => {
         <Layout>
             <div className=" mb-30 h-screen w-full lg:px-40 px-3 py-2 lg:py-3">
 
-                <div className="relative">
-                    <input className="pl-12 rounded-md w-full border-2 border-gray-600 p-2 focus:border-gray-400 focus:shadow-lg focus:text-blue-400 transition bg-white  text-sm focus:outline-none" placeholder="Search Courses" />
-                    <button type="submit">
-                        <FaSearch className="absolute right-0 top-0 flex items-center mt-3 mr-10  text-gray-600" />
-
-                    </button>
-                </div>
-                <div className="py-3">
-                    <h1 className="text-blue-500 text-2xl font-bold">Browse by Category</h1>
-                </div>
-
-
-                <div className="py-3 flex flex-row justify-between w-full">
-                    <button className="flex flex-row overflow-hidden">
-                        <div className="flex justify-center py-4 px-2  items-center bg-gray-700 font-bold text-white rounded-md">
-                            <span>Designer</span>
-                        </div>
-                    </button>
-                    <button className="flex flex-row">
-                        <div className="flex justify-center py-4 px-2 items-center bg-gray-700 font-bold text-white rounded-md">
-                            <span>Traders</span>
-                        </div>
-                    </button>
-                    <button className="flex flex-row">
-                        <div className="flex justify-center py-4 px-2 items-center bg-gray-700 font-bold text-white rounded-md">
-                            <span>Developers</span>
-                        </div>
-                    </button>
-
-                    <button className="flex flex-row">
-                        <div className="flex justify-center py-4 px-2 items-center bg-gray-700 font-bold text-white rounded-md">
-                            <span>Investors</span>
-                        </div>
-                    </button>
-                </div>
-
-                <div className="py-2 capitalize">
-                    <p className="text-3xl font-semibold text-gray-700 flex justify-center">courses</p>
-                    <p className="text-md flex justify-center mt-1 text-gray-500"> 16 results found</p>
-                </div>
-
-
                 <div className="w-full">
-                    <ul>
+
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full">
+
                         {courses.map((course, index) => (
-                            <div key={index} className="border-2 mb-4 rounded-md p-4 border-gray-400">
-                                <li className="flex border-gray-900 p-3 border-2 w-full rounded-lg justify-between items-center">
-                                    <div className="flex flex-row items-center">
-                                        <img src="../assets/img1.jpg" className="w-10 h-10 rounded-full" />
-                                        <span className="ml-2 text-2xl font-bold text-black">
-                                            {course.ownername}
-                                        </span>
-                                    </div>
 
-                                    <div>
-                                        {course.owner}
-                                    </div>
-
-                                </li>
+                            <div key={index} class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {course.name}</h5>
+                                </a>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 truncate"> {course.desc} </p>
 
 
-                                <div className="my-4">
-                                    <p className="text-3xl font-bold">{course.name} --
-                                        <span className="text-2xl">
-                                            <span className="text-blue-500 mr-4">
-                                                {course.price}
-                                            </span>
-                                            xpaceToken
-                                        </span>
-                                    </p>
-                                    <p className="text-md truncate mt-2 ">
-                                        {course.desc}
-                                    </p>
-                                </div>
-                                <div className="flex w-full justify-center">
-                                    <button onClick={() => createOrder(course)} className="bg-blue-400 font-bold text-gray-200 p-3 rounded-lg"> Order </button>
-                                </div>
+                                <a onClick={() => createOrder(course)} class="inline-flex items-center hover:cursor-pointer py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Order Now
+                                    <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </a>
                             </div>
 
+
                         ))}
-                    </ul>
+                    </div>
                 </div>
 
 
             </div>
+
+
+
+
+
         </Layout>
     );
 }

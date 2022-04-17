@@ -1,11 +1,18 @@
 import Layout from "../components/Layout";
 import { useRouter } from "next/router";
 import * as Realm from "realm-web";
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Link from 'next/link'
+import { UserContext } from "../context/user";
 
 const Page = () => {
-    const [userDetails, setUserDetails] = useState([]);
+    const [tuser, setTUser] = useState([]);
+
+    const { userDetails, getUser } = useContext(UserContext)
+
+    getUser()
+    // console.log(userDetails)
+
 
     useEffect(async () => {
 
@@ -19,14 +26,16 @@ const Page = () => {
             const profileID = urlParams.get("id")
 
 
-            const resp = await window.solana.connect();
-            const address = resp.publicKey.toString()
+            const resp = await ethereum.request({ method: 'eth_requestAccounts' });
+            const address = await resp[0]
             // console.log(address)
 
             if (address) {
                 const user = await app.logIn(credentials);
                 const myDetails = await user.functions.xpaceGetUser(profileID);
-                setUserDetails(() => myDetails);
+                setTUser(() => myDetails);
+                // console.log(tuser)
+
             } else {
                 router.push({
                     pathname: `/`,
@@ -38,47 +47,26 @@ const Page = () => {
         }
 
 
-    }, [userDetails]);
+    }, [tuser]);
+
 
 
     return (
         <Layout>
-            <div className="mx-5 md:mx-20 h-full rounded-lg bg-gray-300 px-2">
-                <br /><br />
-                <div className="flex w-full justify-center items-center mb-4">
-                    <img src={userDetails.profileImage} style={{ width: "150px", height: "150px", borderRadius: "50%" }} className="bg-blue-100 p-3 border-2 border-black" />
+
+            <div class="max-w-sm mx-auto mt-8 md:mt-20 shadow-sm shadow-black  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex justify-end px-4 pt-4">
+
 
                 </div>
-                <div className="max-w-md mx-auto shadow-lg bg-gray-200 rounded-lg overflow-hidden md:max-w-lg">
-                    <div className="md:flex justify-center items-center">
-                        <div className="mx-auto w-1/2 mt-8">
-                            <div className="mb-6 flex flex-col justify-center items-center">
-                                <h1 className="font-bold text-gray-800 text-2xl">{userDetails.name}</h1>
-
-                                <p className="my-4 font-medium text-gray-600"> {userDetails.walletAddress}</p>
-
-                                <h1 className="font-bold text-gray-800 text-xl">
-                                    Bio
-                                </h1>
-
-                                <p className="mb-4 font-medium text-gray-600">
-                                    {userDetails.bio}
-                                </p>
-
-                                <button type="submit" className="text-white mt-4 bg-blue-700 
-                            hover:bg-blue-800 rounded-md px-5 py-2.5 font-bold text-center">
-                                    Send Message
-                                </button>
-
-                            </div>
-
-
-
-                        </div>
-
+                <div class="flex flex-col items-center pb-10">
+                    <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src={tuser.profileImage} alt="Profile image" />
+                    <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{tuser.name}</h5>
+                    <h5 class="mb-1 font-medium text-gray-600 dark:text-white">{tuser.walletAddress}</h5>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">{tuser.bio}</span>
+                    <div class="flex mt-4 space-x-3 lg:mt-6">
+                        <a href={`/chat?id=${tuser.walletAddress}&sender=${userDetails.walletAddress}`} class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Message</a>
                     </div>
-                    <br />
-                    <br />
                 </div>
             </div>
         </Layout>

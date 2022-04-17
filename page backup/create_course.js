@@ -1,8 +1,7 @@
 import Layout from "../components/Layout";
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router";
 import * as Realm from "realm-web";
-import { UserContext } from "../context/user";
 
 const Create_Course = () => {
     const router = useRouter()
@@ -10,9 +9,37 @@ const Create_Course = () => {
     const [price, setPrice] = useState("")
     const [desc, setDesc] = useState("")
 
-    const { userDetails, getUser } = useContext(UserContext)
+    const [userDetails, setUserDetails] = useState([]);
 
-    getUser()
+    useEffect(async () => {
+
+        const REALM_APP_ID = "products-qexct";
+        const app = new Realm.App({ id: REALM_APP_ID });
+        const credentials = Realm.Credentials.anonymous();
+
+        try {
+
+
+            const resp = await window.solana.connect();
+            const address = resp.publicKey.toString()
+            // console.log(address)
+
+            if (address) {
+                const user = await app.logIn(credentials);
+                const myDetails = await user.functions.xpaceGetUser(address);
+                setUserDetails(() => myDetails);
+            } else {
+                router.push({
+                    pathname: `/`,
+                });
+            }
+
+        } catch (error) {
+            console.error(error);
+        }
+
+
+    }, [userDetails]);
 
 
     // upload course
@@ -60,11 +87,11 @@ const Create_Course = () => {
 
     return (
         <Layout>
-            <div className="mx-5 md:mx-20  h-full rounded-lg  px-2">
-                <div className="py-10  px-2">
+            <div className="mx-5 md:mx-20  h-full rounded-lg bg-gray-300 px-2">
+                <div className="py-10 bg-gray-300 px-2">
                     <br /><br />
                     <div className="flex w-full justify-center items-center mb-4">
-                        <h1 className="max-w-md mx-auto text-2xl font-bold text-gray-100">Make a Course</h1>
+                        <h1 className="max-w-md mx-auto text-2xl font-bold text-gray-800">Make a Course</h1>
                     </div>
                     <div className="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg overflow-hidden md:max-w-lg">
                         <div className="md:flex">

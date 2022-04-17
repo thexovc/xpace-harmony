@@ -28,36 +28,41 @@ const Hire = () => {
 
 
     return (
+
         <Layout>
-            <div className="h-full w-full lg:px-40 px-3 py-2 lg:py-3">
-
-                <div className="py-2 ">
-                    <p className="text-xl font-semibold text-gray-700">Professionals</p>
-                    <p className="text-md text-gray-400">7 Results Found</p>
+            <div class="p-4 mx-auto max-w-lg bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex justify-between items-center mb-4">
+                    <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">New users</h5>
+                    <a href="#" class="text-xl font-medium text-blue-600 hover:underline dark:text-blue-500">
+                        ...
+                    </a>
                 </div>
-
-
-                <div className="w-full">
-                    <ul>
+                <div class="flow-root">
+                    <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
                         {users.map((user, index) => (
-                            <li key={index} className="flex border p-3 border-1 rounded-lg">
-                                <div className="flex flex-row items-center justify-center"  >
-                                    <img src={user.profileImage} alt="user" className="rounded-full w-10 h-10" />
-                                    <div className="flex flex-col items-left justify-center ml-3">
-                                        <p className="text-black font-semibold text-lg">{user.name} k</p>
-                                        {/* <p className="text-sm text-gray-400">Product Designer</p> */}
+                            <li key={index} class="py-3 sm:py-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                        <img class="w-8 h-8 rounded-full" src={user.profileImage} alt="Neil image" />
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                            {user.name}
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            {user.walletAddress}
+                                        </p>
+                                    </div>
+                                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        <a href={`/page?id=${user.walletAddress}`} className="py-2 px-3 text-white rounded-lg bg-blue-600 ml-auto font-semibold">
+                                            Hire
+                                        </a>
                                     </div>
                                 </div>
-                                <a href={`/page?id=${user.walletAddress}`} className="py-2 px-3 text-white rounded-lg bg-blue-600 ml-auto font-semibold">
-                                    View Profile
-                                </a>
-
                             </li>
-
                         ))}
                     </ul>
                 </div>
-
             </div>
         </Layout>
     );
