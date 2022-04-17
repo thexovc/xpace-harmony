@@ -54,10 +54,10 @@ const Home = () => {
               <span className="hidden lg:inline-block text-gray-500 text-2xl sm:text-2xl" ><a href="https://twitter.com/naval">@i-Jo3l</a> </span>
             </h1>
             <p className="mb-8 text-xl leading-relaxed">
-              The ultimate goal of Web 3.0 is to create more intelligent, connected and open websites.
-              Web 3.0 is essential because it allows businesses to streamline their operations by cutting out the middleman and directly connecting computers. This facilitates communication and collaboration between employees, partners, and customers, making for a more efficient business.
-
-              Xpace is here to help you in your successful transition from Web 2.0 to Web 3.0
+              Get the best of the Web 3.0 experience
+              Skill up to success in Web3.0
+              Learn in-demands skill to advance your career in Web 3.0 in a decentralized space
+              Xpace is here to aid individuals in the successful transition from web2.0 to web3.0
             </p>
 
           </div>
@@ -71,7 +71,8 @@ const Home = () => {
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-col text-center w-full mb-10">
 
-            <h1 className="sm:text-3xl text-2xl font-medium border-b-2 border-black title-font text-gray-900">About Xpace</h1>
+            <h1 className="sm:text-3xl text-2xl font-medium border-b-2 
+            border-black title-font text-gray-900 py-4">About Xpace</h1>
           </div>
           <div className="flex flex-wrap -m-4">
             <div className="p-4 md:w-1/3">
