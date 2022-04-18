@@ -29,7 +29,9 @@ const Make_Post = () => {
         const postdetail = {
             uid: userDetails.walletAddress,
             name: postName,
-            msg: postMsg
+            msg: postMsg,
+            username: userDetails.name,
+            profileImage: userDetails.profileImage
         };
 
         const REALM_APP_ID = "products-qexct";

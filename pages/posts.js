@@ -82,13 +82,13 @@ const Course = () => {
                                         <div className="flex flex-row items-center">
                                             <img src={userDetails.profileImage} className="w-10 h-10 rounded-full" />
                                             <span className="ml-2 text-2xl font-bold text-black">
-                                                {userDetails.name}
+                                                {post.username}
                                             </span>
                                         </div>
 
 
                                         <div className="truncate">
-                                            {userDetails.walletAddress}
+                                            {post.uid}
                                             <span className="bg-blue-600 rounded-lg p-2 ml-4 text-white font-semibold">Read More</span>
                                         </div>
 
@@ -154,14 +154,14 @@ const Course = () => {
 
                                     <li className="flex border-gray-900 p-3 border-2 w-full rounded-lg justify-between items-center">
                                         <div className="flex flex-row items-center">
-                                            <img src={userDetails.profileImage} className="w-10 h-10 rounded-full" />
+                                            <img src={post.profileImage} className="w-10 h-10 rounded-full" />
                                             <span className="ml-2 text-2xl font-bold text-black">
-                                                {userDetails.name}
+                                                {post.username}
                                             </span>
                                         </div>
 
                                         <div>
-                                            {userDetails.walletAddress}
+                                            {post.walletAddress}
                                         </div>
 
                                     </li>
