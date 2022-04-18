@@ -34,15 +34,15 @@ const Hire = () => {
     return (
 
         <Layout>
-            <div className="p-4 mx-auto max-w-lg bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+            <div className="p-4 mx-auto max-w-lg bg-white rounded-lg border shadow-md sm:p-8 ">
                 <div className="flex justify-between items-center mb-4">
-                    <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">New users</h5>
-                    <a href="#" className="text-xl font-medium text-blue-600 hover:underline dark:text-blue-500">
+                    <h5 className="text-xl font-bold leading-none text-gray-900 ">New users</h5>
+                    <a href="#" className="text-xl font-medium text-blue-600 hover:underline ">
                         ...
                     </a>
                 </div>
                 <div className="flow-root">
-                    <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
+                    <ul role="list" className="divide-y divide-gray-200 ">
                         {users.map((user, index) => (
                             <li key={index} className="py-3 sm:py-4">
                                 <div className="flex items-center space-x-4">
@@ -50,14 +50,14 @@ const Hire = () => {
                                         <img className="w-8 h-8 rounded-full" src={user.profileImage} alt="Neil image" />
                                     </div>
                                     <div className="flex-1 min-w-0">
-                                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                        <p className="text-sm font-medium text-gray-900 truncate ">
                                             {user.name}
                                         </p>
-                                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                                        <p className="text-sm text-gray-500 truncate ">
                                             {user.walletAddress}
                                         </p>
                                     </div>
-                                    <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                    <div className="inline-flex items-center text-base font-semibold text-gray-900 ">
                                         <a href={`/page?id=${user.walletAddress}`} className="py-2 px-3 text-white rounded-lg bg-blue-600 ml-auto font-semibold">
                                             Hire
                                         </a>
