@@ -16,7 +16,6 @@ const Navbar = () => {
 
     const LogOut = async () => {
         try {
-            await window.ethereum.currentProvider.disconnect();
 
             router.push({
                 pathname: `/`,
