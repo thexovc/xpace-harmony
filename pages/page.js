@@ -57,7 +57,6 @@ const Page = () => {
 
     return (
         <Layout>
-            dark
             <div className="max-w-sm mx-auto mt-8 md:mt-20 shadow-sm shadow-black  bg-white rounded-lg border border-gray-200 shadow-md  ">
                 <div className="flex justify-end px-4 pt-4">
 
