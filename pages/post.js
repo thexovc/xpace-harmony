@@ -124,7 +124,7 @@ const Page = () => {
 
                             <div className="my-4">
                                 <p className="text-xl font-semibold mb-2">{post.name}</p>
-                                <p className="text-lg text-gray-500 truncate w-2/3">
+                                <p className="text-lg text-gray-500 ">
                                     {post.msg}
                                 </p>
 
@@ -235,7 +235,7 @@ const Page = () => {
 
                             <div className="my-4">
                                 <p className="text-3xl font-semibold mb-2">{post.name}</p>
-                                <p className="text-xl text-gray-500 truncate w-2/3">
+                                <p className="text-xl text-gray-500">
                                     {post.msg}
                                 </p>
                             </div>

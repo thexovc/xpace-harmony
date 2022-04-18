@@ -67,7 +67,7 @@ const Page = () => {
             msg: msgInput
         };
 
-        const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
+        const REALM_APP_ID = "products-qexct";
         const app = new Realm.App({ id: REALM_APP_ID });
         const credentials = Realm.Credentials.anonymous();
 

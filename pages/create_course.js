@@ -74,7 +74,7 @@ const Create_Course = () => {
                         <div className="md:flex">
                             <form className="mx-auto w-10/12 mt-8">
                                 <div className="mb-6">
-                                    <label htmlFor="email" className="pl-4 font-bold text-lg text-gray-600 block mb-2 ">Post Title</label>
+                                    <label htmlFor="email" className="pl-4 font-bold text-lg text-gray-600 block mb-2 ">Course Title</label>
                                     <input onChange={(e) => setCourseName(e.target.value)} type="text" className="shadow-sm bg-gray-50 border
             border-gray-500 text-gray-900  rounded-lg block w-full p-2.5" placeholder="title" required />
 
