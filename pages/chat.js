@@ -96,10 +96,10 @@ const Page = () => {
     return (
         <Layout>
 
-            <div className="max-w-sm mx-auto mt-8 md:mt-20 shadow-sm shadow-black  bg-white rounded-lg border border-gray-200 shadow-md ">
+            <div className="max-w-sm mx-auto mt-8 md:mt-20 shadow-sm shadow-black  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div className="overflow-auto h-80">
                     <div className="flow-root mx-4">
-                        <ul role="list" className="divide-y divide-gray-200 ">
+                        <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
                             {/* {users.map((user, index) => ( */}
                             <li className="py-3 sm:py-4">
                                 <div className="flex items-center space-x-4">
@@ -107,10 +107,10 @@ const Page = () => {
                                         <img className="w-8 h-8 rounded-full" src={userDetails.profileImage} />
                                     </div>
                                     <div className="flex-1 min-w-0">
-                                        <p className="text-sm font-medium text-gray-900 truncate ">
+                                        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
                                             {userDetails.name}
                                         </p>
-                                        <p className="text-sm text-gray-500 truncate ">
+                                        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
                                             {userDetails.walletAddress}
                                         </p>
                                     </div>
