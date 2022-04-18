@@ -21,7 +21,7 @@ const EditProfile = () => {
     }, [])
 
 
-    dark
+
 
 
     // make a post
