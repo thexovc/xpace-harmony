@@ -9,6 +9,7 @@ const Page = () => {
 
     const [msgInput, setMsgInput] = useState("");
     const [msgs, setMsgs] = useState([]);
+    const [tuser, setTUser] = useState([]);
 
     const { userDetails, getUser, setToggle } = useContext(UserContext)
 
@@ -17,6 +18,43 @@ const Page = () => {
     useEffect(() => {
         setToggle(false)
     }, [])
+
+
+    // reciever
+    useEffect(async () => {
+
+        const REALM_APP_ID = "products-qexct";
+        const app = new Realm.App({ id: REALM_APP_ID });
+        const credentials = Realm.Credentials.anonymous();
+
+        try {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const profileID = urlParams.get("id")
+
+
+            const resp = await ethereum.request({ method: 'eth_requestAccounts' });
+            const address = await resp[0]
+            // console.log(address)
+
+            if (address) {
+                const user = await app.logIn(credentials);
+                const myDetails = await user.functions.xpaceGetUser(profileID);
+                setTUser(() => myDetails);
+                // console.log(tuser)
+
+            } else {
+                router.push({
+                    pathname: `/`,
+                });
+            }
+
+        } catch (error) {
+            console.error(error);
+        }
+
+
+    }, [tuser]);
 
 
 
@@ -104,14 +142,14 @@ const Page = () => {
                             <li className="py-3 sm:py-4">
                                 <div className="flex items-center space-x-4">
                                     <div className="flex-shrink-0">
-                                        <img className="w-8 h-8 rounded-full" src={userDetails.profileImage} />
+                                        <img className="w-8 h-8 rounded-full" src={tuser.profileImage} />
                                     </div>
                                     <div className="flex-1 min-w-0">
                                         <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                                            {userDetails.name}
+                                            {tuser.name}
                                         </p>
                                         <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                                            {userDetails.walletAddress}
+                                            {tuser.walletAddress}
                                         </p>
                                     </div>
 
