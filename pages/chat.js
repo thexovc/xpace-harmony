@@ -136,11 +136,11 @@ const Page = () => {
 
             <div className="max-w-sm mx-auto mt-8 md:mt-20 shadow-sm shadow-black  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div className="overflow-auto h-80">
-                    <div className="flow-root mx-4">
-                        <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
+                    <div className="flow-root mx-4 ">
+                        <ul role="list" className="divide-y divide-gray-500 ">
                             {/* {users.map((user, index) => ( */}
                             <li className="py-3 sm:py-4">
-                                <div className="flex items-center space-x-4">
+                                <div className="flex items-center space-x-4 border border-gray-600">
                                     <div className="flex-shrink-0">
                                         <img className="w-8 h-8 rounded-full" src={tuser.profileImage} />
                                     </div>
