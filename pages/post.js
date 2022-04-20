@@ -146,7 +146,10 @@ const Page = () => {
                             </h1>}
                         </div>
 
+                        <div className="py-8 capitalize flex justify-center mb-2">
+                            <p className="text-2xl font-semibold text-gray-100">Comments</p>
 
+                        </div>
 
                         {set && (
 
@@ -183,11 +186,13 @@ const Page = () => {
                     <div className="w-full max-w-xl bg-white rounded-lg px-4 pt-2"  >
                         {postComment.map((cmm, index) => (
                             <li key={index} className="flex mb-4 p-3 border-2 w-full rounded-lg justify-between items-center">
-                                <div className="flex flex-row items-center">
-                                    <img src="/assets/profile.png" className="w-10 h-10 rounded-full" />
-                                    <span className="ml-2 text-xl font-semibold text-black">
-                                        {cmm.name} :
-                                    </span>
+                                <div className="flex flex-col items-center">
+                                    <div className="flex">
+                                        <img src="/assets/profile.png" className="w-10 h-10 rounded-full" />
+                                        <span className="ml-2 text-xl font-semibold text-black">
+                                            {cmm.name}
+                                        </span>
+                                    </div>
                                     <h1 className="ml-2">{cmm.comment}</h1>
                                 </div>
                             </li>
@@ -254,7 +259,10 @@ const Page = () => {
                             </h1>}
                         </div>
 
+                        <div className="py-8 capitalize flex justify-center mb-2">
+                            <p className="text-2xl font-semibold text-gray-100">Comments</p>
 
+                        </div>
 
                         {set && (
 
