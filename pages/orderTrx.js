@@ -127,7 +127,7 @@ const Hire = () => {
                                     <div className="flex flex-row items-center justify-between"  >
 
                                         <div className="flex flex-col items-left justify-center ml-3">
-                                            <p className="text-black font-semibold text-lg">{trx.name} k</p>
+                                            <p className="text-black font-semibold text-lg">{trx.name} </p>
                                             <p className="text-gray-600 font-semibold">Status:
                                                 {trx.status == "success" ? <span className="ml-4 text-green-600">{trx.status}...</span> : <span className="ml-4 text-red-700">{trx.status}...</span>}
                                             </p>
